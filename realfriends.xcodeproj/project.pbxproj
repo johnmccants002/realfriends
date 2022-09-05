@@ -45,6 +45,7 @@
 		31DF7AB628C5E1880069B0C7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 31DF7AB528C5E1880069B0C7 /* Kingfisher */; };
 		31DF7AB828C5F2070069B0C7 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7AB728C5F2070069B0C7 /* ActivityViewModel.swift */; };
 		31DF7ABA28C5F2700069B0C7 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7AB928C5F2700069B0C7 /* Activity.swift */; };
+		31DF7ABC28C61E090069B0C7 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7ABB28C61E090069B0C7 /* ActivityCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		31C98FE828AE41A3009A6163 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		31DF7AB728C5F2070069B0C7 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		31DF7AB928C5F2700069B0C7 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		31DF7ABB28C61E090069B0C7 /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				3193024C289522BF00D56E1F /* ActivityView.swift */,
+				31DF7ABB28C61E090069B0C7 /* ActivityCell.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				319302362895213200D56E1F /* FeedView.swift in Sources */,
 				3193024D289522BF00D56E1F /* ActivityView.swift in Sources */,
 				31930252289526F500D56E1F /* CustomSecureField.swift in Sources */,
+				31DF7ABC28C61E090069B0C7 /* ActivityCell.swift in Sources */,
 				3102039D28C4B5CD003DBCB4 /* WinActionViewModel.swift in Sources */,
 				3193023A2895215200D56E1F /* WinActionView.swift in Sources */,
 				319302432895219F00D56E1F /* ProfileHeaderView.swift in Sources */,

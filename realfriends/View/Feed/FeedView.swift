@@ -13,12 +13,9 @@ struct FeedView: View {
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-        
             List(viewModel.wins.enumerated().map({$0}), id: \.1.self) { id, win in
-             
                     if (id > 0) {
                         if (viewModel.wins[id - 1].simpleDateString != win.simpleDateString) {
-                            
                             Text(win.simpleDateString)
                                 .frame(maxWidth: .infinity)
                                 .multilineTextAlignment(.center)
@@ -33,9 +30,7 @@ struct FeedView: View {
                             .listRowBackground(Color.clear)
                             .listRowSeparator(.hidden)
                             .fontWeight(.semibold)
-                            
                     }
-                    
                     WinCell(win: win)
                         .overlay(
                             NavigationLink(destination: WinDetailView(), label: {
@@ -50,18 +45,10 @@ struct FeedView: View {
                                 if (viewModel.wins[lastIndex - 2] == win) {
                                     viewModel.fetchMoreWins()
                                 }
-                                
                             }
-                            
                         }
                         .listRowBackground(Color.clear)
-                        
-                       
                 }
-            
-            
-           
-            
             
             HStack {
                 Spacer()
@@ -81,6 +68,7 @@ struct FeedView: View {
                 }
             }
         }
+        
     }
 }
 

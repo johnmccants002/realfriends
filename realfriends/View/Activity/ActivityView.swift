@@ -12,8 +12,7 @@ struct ActivityView: View {
     
     var body: some View {
         List(viewModel.activities) { activity in
-            Text("\(activity.fullname) respects your win")
-            
+            ActivityCell(activity: activity)
         }
     }
 }

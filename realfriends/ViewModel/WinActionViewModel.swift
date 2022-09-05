@@ -40,7 +40,8 @@ class WinActionViewModel: ObservableObject {
                 "profileImageUrl": user.profileImageUrl,
                 "username": user.username,
                 "fullname": user.fullname,
-                "winId": self.win.id
+                "winId": self.win.id,
+                "winCaption": self.win.caption
             ]
             activityDoc.setData(data)
         }

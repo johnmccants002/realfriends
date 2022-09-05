@@ -30,6 +30,7 @@ struct Activity: Identifiable {
     var fullname: String
     var profileImageUrl: String
     var winId: String?
+    var winCaption: String?
     
     init(dict: [String: Any]) {
         self.fromUid = dict["fromUid"] as? String ?? ""
@@ -41,6 +42,8 @@ struct Activity: Identifiable {
         self.timestamp = dict["timestamp"] as? Timestamp ?? Timestamp(date: Date())
         self.winId = dict["winId"] as? String
         self.profileImageUrl = dict["profileImageUrl"] as? String ?? ""
+        self.winCaption = dict["winCaption"] as? String ?? ""
+        
     }
     
     var timestampString: String {
