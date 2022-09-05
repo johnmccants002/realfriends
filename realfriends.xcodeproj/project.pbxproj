@@ -43,6 +43,8 @@
 		31C98FE728AE3EBF009A6163 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C98FE628AE3EBF009A6163 /* ProfileViewModel.swift */; };
 		31C98FE928AE41A3009A6163 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31C98FE828AE41A3009A6163 /* GoogleService-Info.plist */; };
 		31DF7AB628C5E1880069B0C7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 31DF7AB528C5E1880069B0C7 /* Kingfisher */; };
+		31DF7AB828C5F2070069B0C7 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7AB728C5F2070069B0C7 /* ActivityViewModel.swift */; };
+		31DF7ABA28C5F2700069B0C7 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7AB928C5F2700069B0C7 /* Activity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,8 @@
 		31C98FE428AE3A1C009A6163 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		31C98FE628AE3EBF009A6163 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		31C98FE828AE41A3009A6163 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		31DF7AB728C5F2070069B0C7 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
+		31DF7AB928C5F2700069B0C7 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,7 @@
 				31C98FE128AE39B5009A6163 /* FeedViewModel.swift */,
 				31C98FE628AE3EBF009A6163 /* ProfileViewModel.swift */,
 				3102039C28C4B5CD003DBCB4 /* WinActionViewModel.swift */,
+				31DF7AB728C5F2070069B0C7 /* ActivityViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 				3193022F289520B000D56E1F /* Win.swift */,
 				319302312895210700D56E1F /* User.swift */,
 				319302332895211900D56E1F /* Message.swift */,
+				31DF7AB928C5F2700069B0C7 /* Activity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -328,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31DF7ABA28C5F2700069B0C7 /* Activity.swift in Sources */,
 				31C98FE228AE39B5009A6163 /* FeedViewModel.swift in Sources */,
 				3193023E2895216D00D56E1F /* WinDetailView.swift in Sources */,
 				319302322895210700D56E1F /* User.swift in Sources */,
@@ -338,6 +345,7 @@
 				31930230289520B000D56E1F /* Win.swift in Sources */,
 				31C98FE528AE3A1C009A6163 /* Constants.swift in Sources */,
 				31930250289526EA00D56E1F /* CustomTextField.swift in Sources */,
+				31DF7AB828C5F2070069B0C7 /* ActivityViewModel.swift in Sources */,
 				31930245289521B700D56E1F /* ProfileActionButtonView.swift in Sources */,
 				3193025D28953DCD00D56E1F /* ImagePicker.swift in Sources */,
 				319302342895211900D56E1F /* Message.swift in Sources */,
