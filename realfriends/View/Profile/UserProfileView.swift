@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserProfileView: View {
-//    @State var selectedFilter: WinFilterOptions = .wins
+    @State var selectedFilter: WinFilterOptions = .wins
     let user: User
     @ObservedObject var viewModel: ProfileViewModel
     
@@ -19,8 +19,9 @@ struct UserProfileView: View {
     var body: some View {
         ScrollView {
             VStack {
-                ProfileHeaderView()
+                ProfileHeaderView(user: user, viewModel: viewModel)
                     .padding()
+                FilterButtonView(selectedOption: $selectedFilter)
          
                 
                 ForEach(viewModel.userWins) { win in
@@ -29,7 +30,7 @@ struct UserProfileView: View {
                 }
                 
             }
-            .navigationTitle("John002")
+            .navigationTitle(user.username)
         }
     }
 }
