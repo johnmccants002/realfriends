@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct ActivityView: View {
-    @ObservedObject viewModel: ActivityViewModel
+    @ObservedObject var viewModel = ActivityViewModel()
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(viewModel.activities) { activity in
+            Text("\(activity.fullname) respects your win")
+            
+        }
     }
 }
 

@@ -17,10 +17,11 @@ class WinActionViewModel: ObservableObject {
     }
     
     func respectWin() {
-        guard let uid = AuthViewModel.shared.userSession?.uid else { return }
+        guard let uid = AuthViewModel.shared.userSession?.uid, let user = AuthViewModel.shared.user else { return }
         
         let winRespectsRef = COLLECTION_WINS.document(win.id).collection("win-respects")
         let userRespectsRef = COLLECTION_USERS.document(uid).collection("user-respects")
+        let activityRef = COLLECTION_USERS.document(win.uid).collection("user-activity")
         
         COLLECTION_WINS.document(win.id).updateData(["respects": win.respects + 1])
         
@@ -28,6 +29,20 @@ class WinActionViewModel: ObservableObject {
             userRespectsRef.document(self.win.id).setData([:]) { _ in
                 self.didRespect = true
             }
+            
+            let activityDoc = activityRef.document("\(self.win.id)\(uid)")
+            let data = [
+                "fromUid": uid,
+                "toUid": self.win.uid,
+                "timestamp": Timestamp(date: Date()),
+                "type": "newRespect",
+                "id": activityDoc.documentID,
+                "profileImageUrl": user.profileImageUrl,
+                "username": user.username,
+                "fullname": user.fullname,
+                "winId": self.win.id
+            ]
+            activityDoc.setData(data)
         }
     }
     
@@ -36,7 +51,7 @@ class WinActionViewModel: ObservableObject {
         
         let winRespectsRef = COLLECTION_WINS.document(win.id).collection("win-respects")
         let userRespectsRef = COLLECTION_USERS.document(uid).collection("user-respects")
-        
+        let activityRef = COLLECTION_USERS.document(win.uid).collection("user-activity")
         COLLECTION_WINS.document(win.id).updateData(["respects": win.respects - 1])
         
         winRespectsRef.document(uid).delete { _ in
@@ -44,6 +59,7 @@ class WinActionViewModel: ObservableObject {
                 self.didRespect = false
             }
             
+            activityRef.document("\(self.win.id)\(uid)").delete()
         }
     }
     

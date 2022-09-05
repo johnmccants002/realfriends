@@ -20,7 +20,7 @@ case newFollower
     }
 }
 
-struct Activity {
+struct Activity: Identifiable {
     var fromUid: String
     var toUid: String
     var type: String
@@ -28,6 +28,7 @@ struct Activity {
     var timestamp: Timestamp
     var username: String
     var fullname: String
+    var profileImageUrl: String
     var winId: String?
     
     init(dict: [String: Any]) {
@@ -39,6 +40,7 @@ struct Activity {
         self.fullname = dict["fullname"] as? String ?? ""
         self.timestamp = dict["timestamp"] as? Timestamp ?? Timestamp(date: Date())
         self.winId = dict["winId"] as? String
+        self.profileImageUrl = dict["profileImageUrl"] as? String ?? ""
     }
     
     var timestampString: String {
@@ -50,4 +52,10 @@ struct Activity {
     }
     
 
+}
+
+extension Activity: Equatable {
+    static func == (lhs: Activity, rhs: Activity) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
