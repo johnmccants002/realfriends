@@ -21,7 +21,7 @@ struct User: Identifiable {
         self.profileImageUrl = dict["profileImageUrl"] as? String ?? ""
         self.fullname = dict["fullname"] as? String ?? ""
         self.email = dict["email"] as? String ?? ""
-        self.stats = UserStats(followers: 0, following: 0, realFriends: 0)
+        self.stats = UserStats(followers: 0, following: 0)
         
         
     }
@@ -31,5 +31,4 @@ struct User: Identifiable {
 struct UserStats {
     let followers: Int
     let following: Int
-    let realFriends: Int
 }
