@@ -8,12 +8,22 @@
 import SwiftUI
 
 struct WinActionView: View {
+    let win: Win
+    @ObservedObject var viewModel: WinActionViewModel
+    
+    init(win: Win) {
+        self.win = win
+        self.viewModel = WinActionViewModel(win: win)
+    }
     var body: some View {
         HStack {
-            Button(action: {}, label: {
+            Button(action: {
+                viewModel.didRespect ? viewModel.unrespectWin() : viewModel.respectWin()
+            }, label: {
                 HStack {
                     Text("Respect")
-                    Image(systemName: "heart")
+                    Image(systemName: viewModel.didRespect ? "heart.fill": "heart")
+                    
                 }
                 
             })
@@ -35,8 +45,4 @@ struct WinActionView: View {
     }
 }
 
-struct WinActionView_Previews: PreviewProvider {
-    static var previews: some View {
-        WinActionView()
-    }
-}
+

@@ -43,14 +43,12 @@ struct WinCell: View {
             HStack {
                 Spacer()
                 Button(action: {}) {
-                    cell("Realfriends-dev x4"
-                         )
-                      
+                    cell("Realfriends-dev x4")
                 }
                 
             }
             
-                WinActionView()
+            WinActionView(win: win)
                 .frame(maxWidth: .infinity)
                 
         }
