@@ -44,9 +44,6 @@ struct NewWinView: View {
                             .onTapGesture {
                                 isShowingTypes = true
                             }
-                        
-                    
-                  
                     Spacer()
                     Spacer()
 

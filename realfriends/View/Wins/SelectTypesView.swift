@@ -26,7 +26,7 @@ struct SelectTypesView: View {
                     TextField("", text: $searchText, prompt: Text("Search or Add Type"))
                         .textFieldStyle(.roundedBorder)
                         .onChange(of: searchText) { newValue in
-                            let filteredTypes = viewModel.types.filter({$0.typeString.contains(searchText)})
+                            let filteredTypes = viewModel.types.filter({$0.typeString == newValue})
                             
                             if searchText.isEmpty {
                                 showNewType = false
@@ -51,6 +51,7 @@ struct SelectTypesView: View {
                 }
                 .padding(.leading, 20)
                 .padding(.trailing, 20)
+                .padding(.top, 10)
                 
                 List(viewModel.types) { type in
                     if searchText == "" {
@@ -77,6 +78,10 @@ struct SelectTypesView: View {
             }
         }
         .navigationTitle("Win Type")
+        .toolbarColorScheme(.dark, for: .navigationBar)
+        .toolbarBackground(
+            Color.purple, for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
         
     }
         
