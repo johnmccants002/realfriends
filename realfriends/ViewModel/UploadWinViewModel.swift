@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 class UploadWinViewModel: ObservableObject {
     @Binding var isPresented: Bool
+    @Published var typeString = "Basic"
     
     init(isPresented: Binding<Bool>) {
         self._isPresented = isPresented

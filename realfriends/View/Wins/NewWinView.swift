@@ -32,8 +32,8 @@ struct NewWinView: View {
                 TextArea("What productive thing did you do today?", text: $winText)
                 HStack {
                     
-                    NavigationLink(destination: SelectTypesView()) {
-                        Text("Basic")
+                    NavigationLink(destination: SelectTypesView(uploadViewModel: viewModel, isShowingTypes: $isShowingTypes), isActive: $isShowingTypes) {
+                        Text(viewModel.typeString)
                             .foregroundColor(.white)
                             .font(.system(size: 16, weight: .semibold))
                             .multilineTextAlignment(.center)
@@ -41,6 +41,9 @@ struct NewWinView: View {
                             .frame(maxWidth: 100, maxHeight: 40)
                             .background(Color.teal)
                             .cornerRadius(10)
+                            .onTapGesture {
+                                isShowingTypes = true
+                            }
                         
                     
                   

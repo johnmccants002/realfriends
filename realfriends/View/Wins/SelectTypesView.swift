@@ -9,78 +9,76 @@ import SwiftUI
 
 struct SelectTypesView: View {
     @ObservedObject var viewModel = SelectTypesViewModel()
+    @ObservedObject var uploadViewModel: UploadWinViewModel
     @State var searchText = ""
     @State var showNewType = false
+    @Binding var isShowingTypes : Bool
     
-    
-    func displayEmptyView() -> some View {
-        return HStack {Button {
-            print("empty")
-        } label: {
-            EmptyView()
-        }
-        }
-
+    init(uploadViewModel: UploadWinViewModel, isShowingTypes: Binding<Bool>) {
+        self.uploadViewModel = uploadViewModel
+        self._isShowingTypes = isShowingTypes
     }
     
-    func displayAddType() -> some View {
-        return HStack {Button {
-            viewModel.addNewUserType(typeString: searchText)
-        } label: {
-            Text("Add New Type")
-        }
-        }
-    }
-        
     var body: some View {
-        VStack {
-            HStack {
-                TextField("", text: $searchText, prompt: Text("Search or Add Type"))
-                    .textFieldStyle(.roundedBorder)
-                    .onChange(of: searchText) { newValue in
-                        let filteredTypes = viewModel.types.filter({$0.typeString.contains(searchText)})
+        NavigationView {
+            VStack {
+                HStack {
+                    TextField("", text: $searchText, prompt: Text("Search or Add Type"))
+                        .textFieldStyle(.roundedBorder)
+                        .onChange(of: searchText) { newValue in
+                            let filteredTypes = viewModel.types.filter({$0.typeString.contains(searchText)})
+                            
+                            if searchText.isEmpty {
+                                showNewType = false
+                            } else if filteredTypes.isEmpty {
+                                showNewType = true
+                            } else {
+                                showNewType = false
+                            }
+                        }
+                    
+                    showNewType ?
+                    AnyView(Image(systemName: "plus"))
+                        .onTapGesture {
+                            viewModel.addNewUserType(typeString: searchText)
+                            searchText = ""
+                        }
+                    :
+                    AnyView(EmptyView())
+                        .onTapGesture {
+                            print("do nothing")
+                        }
+                }
+                .padding(.leading, 20)
+                .padding(.trailing, 20)
+                
+                List(viewModel.types) { type in
+                    if searchText == "" {
+                        Button {
+                            uploadViewModel.typeString = type.typeString
+                            isShowingTypes = false
+                        } label: {
+                            Text(type.typeString)
+                        }
+
                         
-                        if searchText.isEmpty {
-                            showNewType = false
-                        } else if filteredTypes.isEmpty {
-                            showNewType = true
-                        } else {
-                            showNewType = false
+                    } else if type.typeString.contains(searchText) {
+                        Button {
+                            uploadViewModel.typeString = type.typeString
+                            isShowingTypes = false
+                        } label: {
+                            Text(type.typeString)
                         }
                     }
-                
-                showNewType ?
-                AnyView(Image(systemName: "plus"))
-                    .onTapGesture {
-                        viewModel.addNewUserType(typeString: searchText)
-                        searchText = ""
-                    }
-                :
-                AnyView(EmptyView())
-                    .onTapGesture {
-                        print("do nothing")
-                    }
-            }
-            .padding(.leading, 20)
-            .padding(.trailing, 20)
-                            
-            List(viewModel.types) { type in
-                if searchText == "" {
-                    Text(type.typeString)
-                        
-                } else if type.typeString.contains(searchText) {
-                    Text(type.typeString)
                 }
+                
+                Spacer()
+                
             }
-  
-            Spacer()
-            
         }
+        .navigationTitle("Win Type")
+        
     }
+        
 }
 
-struct SelectTypesView_Previews: PreviewProvider {
-    static var previews: some View {
-        SelectTypesView()
-    }
-}
