@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 
 
-class SelectTypesViewModel {
+class SelectTypesViewModel: ObservableObject {
     var types = [WinType]()
     
     init() {
@@ -33,7 +33,6 @@ class SelectTypesViewModel {
                 fetchedTypes.append(type)
             })
             self.types = fetchedTypes
-            
         }
         
     }
@@ -42,8 +41,8 @@ class SelectTypesViewModel {
         guard let uid = AuthViewModel.shared.userSession?.uid else { return }
         let typesRef = COLLECTION_USERS.document(uid).collection("types")
         let typesDoc = typesRef.document()
-        let typeData = ["typeString": typeString, "lastUsed": Timestamp(date: Date())] as [String : Any]
-        
+        let typeData = ["typeString": typeString, "lastUsed": Timestamp(date: Date()), "id": typesDoc.documentID] as [String : Any]
+        types.append(WinType(dict: typeData))
         typesDoc.setData(typeData)
         
         

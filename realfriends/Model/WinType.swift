@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 
-struct WinType {
+struct WinType: Identifiable {
     
     let typeString: String
     let lastUsed: Timestamp
