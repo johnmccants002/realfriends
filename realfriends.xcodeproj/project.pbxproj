@@ -46,6 +46,9 @@
 		31DF7AB828C5F2070069B0C7 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7AB728C5F2070069B0C7 /* ActivityViewModel.swift */; };
 		31DF7ABA28C5F2700069B0C7 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7AB928C5F2700069B0C7 /* Activity.swift */; };
 		31DF7ABC28C61E090069B0C7 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7ABB28C61E090069B0C7 /* ActivityCell.swift */; };
+		31DF7ABE28C74FA20069B0C7 /* SelectTypesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7ABD28C74FA20069B0C7 /* SelectTypesView.swift */; };
+		31DF7AC028C751990069B0C7 /* SelectTypesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7ABF28C751990069B0C7 /* SelectTypesViewModel.swift */; };
+		31DF7AC228C7533A0069B0C7 /* WinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7AC128C7533A0069B0C7 /* WinType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +87,9 @@
 		31DF7AB728C5F2070069B0C7 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		31DF7AB928C5F2700069B0C7 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		31DF7ABB28C61E090069B0C7 /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
+		31DF7ABD28C74FA20069B0C7 /* SelectTypesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTypesView.swift; sourceTree = "<group>"; };
+		31DF7ABF28C751990069B0C7 /* SelectTypesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTypesViewModel.swift; sourceTree = "<group>"; };
+		31DF7AC128C7533A0069B0C7 /* WinType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +170,7 @@
 				31C98FE628AE3EBF009A6163 /* ProfileViewModel.swift */,
 				3102039C28C4B5CD003DBCB4 /* WinActionViewModel.swift */,
 				31DF7AB728C5F2070069B0C7 /* ActivityViewModel.swift */,
+				31DF7ABF28C751990069B0C7 /* SelectTypesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -175,6 +182,7 @@
 				319302312895210700D56E1F /* User.swift */,
 				319302332895211900D56E1F /* Message.swift */,
 				31DF7AB928C5F2700069B0C7 /* Activity.swift */,
+				31DF7AC128C7533A0069B0C7 /* WinType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -213,6 +221,7 @@
 				319302392895215200D56E1F /* WinActionView.swift */,
 				3193023B2895216100D56E1F /* NewWinView.swift */,
 				3193023D2895216D00D56E1F /* WinDetailView.swift */,
+				31DF7ABD28C74FA20069B0C7 /* SelectTypesView.swift */,
 			);
 			path = Wins;
 			sourceTree = "<group>";
@@ -337,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31DF7ABE28C74FA20069B0C7 /* SelectTypesView.swift in Sources */,
 				31DF7ABA28C5F2700069B0C7 /* Activity.swift in Sources */,
 				31C98FE228AE39B5009A6163 /* FeedViewModel.swift in Sources */,
 				3193023E2895216D00D56E1F /* WinDetailView.swift in Sources */,
@@ -346,10 +356,12 @@
 				31930247289521D800D56E1F /* FilterButtonView.swift in Sources */,
 				3193025A2895327F00D56E1F /* RegistrationView.swift in Sources */,
 				31930230289520B000D56E1F /* Win.swift in Sources */,
+				31DF7AC228C7533A0069B0C7 /* WinType.swift in Sources */,
 				31C98FE528AE3A1C009A6163 /* Constants.swift in Sources */,
 				31930250289526EA00D56E1F /* CustomTextField.swift in Sources */,
 				31DF7AB828C5F2070069B0C7 /* ActivityViewModel.swift in Sources */,
 				31930245289521B700D56E1F /* ProfileActionButtonView.swift in Sources */,
+				31DF7AC028C751990069B0C7 /* SelectTypesViewModel.swift in Sources */,
 				3193025D28953DCD00D56E1F /* ImagePicker.swift in Sources */,
 				319302342895211900D56E1F /* Message.swift in Sources */,
 				3193025628952DD300D56E1F /* Extensions.swift in Sources */,

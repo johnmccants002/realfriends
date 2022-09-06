@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NewWinView: View {
     @Binding var isPresented: Bool
+    @State var isShowingTypes: Bool = false
     @State var winText: String = ""
     @ObservedObject var viewModel: UploadWinViewModel
     @ObservedObject var feedViewModel: FeedViewModel
@@ -30,19 +31,17 @@ struct NewWinView: View {
                 
                 TextArea("What productive thing did you do today?", text: $winText)
                 HStack {
-                    Button {
-                        print("Type button tapped")
-                    }
-                
-                    label: {
+                    
+                    NavigationLink(destination: SelectTypesView()) {
                         Text("Basic")
                             .foregroundColor(.white)
                             .font(.system(size: 16, weight: .semibold))
                             .multilineTextAlignment(.center)
-                    }
-                    .frame(maxWidth: 100, maxHeight: 40)
-                    .background(Color.teal)
-                    .cornerRadius(10)
+                            }
+                            .frame(maxWidth: 100, maxHeight: 40)
+                            .background(Color.teal)
+                            .cornerRadius(10)
+                        
                     
                   
                     Spacer()
