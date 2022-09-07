@@ -49,5 +49,15 @@ extension Date {
     var isLastDayOfMonth: Bool {
         return dayAfter.month != month
     }
+    
+    var simpleDateString: String {
+        let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yy"
+        let date = Date()
+      
+        return dateFormatter.string(from: date)
+        
+    }
+
 }
 

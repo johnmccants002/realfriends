@@ -47,7 +47,6 @@ class FeedViewModel: ObservableObject {
         let now = Int(Date().timeIntervalSince1970)
         let difference = now - lastFetch
         if endReached {
-            print("No More fetching")
             return
         }
         print("Function called. Win Count: \(self.wins.count)")

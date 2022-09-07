@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct WinCell: View {
     let win: Win
@@ -13,7 +14,7 @@ struct WinCell: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             HStack(alignment: .top) {
-                Image("johncartoon")
+                KFImage(URL(string: win.profileImageUrl))
                     .resizable()
                     .scaledToFill()
                     .clipped()
@@ -43,7 +44,7 @@ struct WinCell: View {
             HStack {
                 Spacer()
                 Button(action: {}) {
-                    cell("Realfriends-dev x4")
+                    cell(win.type)
                 }
                 
             }
@@ -69,7 +70,6 @@ struct WinCell: View {
                             .foregroundColor(.purple)
                             .frame(width: geometry.size.width * 1.0, height: geometry.size.height)
                         Capsule()
-                            
                     }
                 }
             )

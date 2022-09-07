@@ -11,9 +11,11 @@ struct FeedView: View {
     @State var isShowingNewWin = false
     @ObservedObject var viewModel = FeedViewModel()
     
+    
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             List(viewModel.wins.enumerated().map({$0}), id: \.1.self) { id, win in
+                
                     if (id > 0) {
                         if (viewModel.wins[id - 1].simpleDateString != win.simpleDateString) {
                             Text(win.simpleDateString)
@@ -33,7 +35,7 @@ struct FeedView: View {
                     }
                     WinCell(win: win)
                         .overlay(
-                            NavigationLink(destination: WinDetailView(), label: {
+                            NavigationLink(destination: WinDetailView(win: win), label: {
                                 EmptyView()
                             })
                             .opacity(0)

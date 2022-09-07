@@ -10,15 +10,21 @@ import Firebase
 import FirebaseStorage
 import FirebaseAuth
 
+
+
 class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     @Published var isAuthenticating = false
     @Published var error: Error?
     @Published var user: User?
     
+   
+    
     static let shared = AuthViewModel()
     
     init() {
+        Auth.auth().useEmulator(withHost:"localhost", port:9099)
+        
         userSession = Auth.auth().currentUser
         fetchUser()
     }
@@ -42,7 +48,9 @@ class AuthViewModel: ObservableObject {
         print(email, password, username, fullname, profileImage.pngData() ?? "image data")
         guard let imageData = profileImage.jpegData(compressionQuality: 0.3) else { return }
         let filename = NSUUID().uuidString
+        
         let storageRef = Storage.storage().reference().child(filename)
+//        let storageRef = Storage.storage(url: "gs://realfriends-210b9.appspot.com").reference().child(filename)
         storageRef.putData(imageData, metadata: nil) { _, error in
             
             if let error = error {
@@ -96,9 +104,7 @@ class AuthViewModel: ObservableObject {
         Firestore.firestore().collection("users").document(uid).getDocument { snapshot, _ in
             guard let data = snapshot?.data() else { return }
             self.user = User(dict: data)
-         
-            
-            
+           
         }
     }
 }
