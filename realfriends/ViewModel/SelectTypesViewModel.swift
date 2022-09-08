@@ -40,7 +40,7 @@ class SelectTypesViewModel: ObservableObject {
     func addNewUserType(typeString: String) {
         guard let uid = AuthViewModel.shared.userSession?.uid else { return }
         let typesRef = COLLECTION_USERS.document(uid).collection("types")
-        let typesDoc = typesRef.document()
+        let typesDoc = typesRef.document(typeString)
         let typeData = ["typeString": typeString, "lastUsed": Timestamp(date: Date()), "id": typesDoc.documentID] as [String : Any]
         types.append(WinType(dict: typeData))
         typesDoc.setData(typeData)
@@ -51,7 +51,7 @@ class SelectTypesViewModel: ObservableObject {
     func deleteUserType(winType: WinType) {
         guard let uid = AuthViewModel.shared.userSession?.uid else { return }
         let typesRef = COLLECTION_USERS.document(uid).collection("types")
-        typesRef.document(winType.id).delete()
+        typesRef.document(winType.typeString).delete()
         
     }
     

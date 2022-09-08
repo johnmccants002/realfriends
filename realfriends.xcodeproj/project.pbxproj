@@ -49,6 +49,8 @@
 		31DF7ABE28C74FA20069B0C7 /* SelectTypesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7ABD28C74FA20069B0C7 /* SelectTypesView.swift */; };
 		31DF7AC028C751990069B0C7 /* SelectTypesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7ABF28C751990069B0C7 /* SelectTypesViewModel.swift */; };
 		31DF7AC228C7533A0069B0C7 /* WinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7AC128C7533A0069B0C7 /* WinType.swift */; };
+		31DF7AC428C976040069B0C7 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7AC328C976040069B0C7 /* LazyView.swift */; };
+		31DF7AC628C978AC0069B0C7 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7AC528C978AC0069B0C7 /* UserViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +92,8 @@
 		31DF7ABD28C74FA20069B0C7 /* SelectTypesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTypesView.swift; sourceTree = "<group>"; };
 		31DF7ABF28C751990069B0C7 /* SelectTypesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTypesViewModel.swift; sourceTree = "<group>"; };
 		31DF7AC128C7533A0069B0C7 /* WinType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinType.swift; sourceTree = "<group>"; };
+		31DF7AC328C976040069B0C7 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
+		31DF7AC528C978AC0069B0C7 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +175,7 @@
 				3102039C28C4B5CD003DBCB4 /* WinActionViewModel.swift */,
 				31DF7AB728C5F2070069B0C7 /* ActivityViewModel.swift */,
 				31DF7ABF28C751990069B0C7 /* SelectTypesViewModel.swift */,
+				31DF7AC528C978AC0069B0C7 /* UserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -243,6 +248,7 @@
 				31930253289526FF00D56E1F /* TextArea.swift */,
 				3193025528952DD300D56E1F /* Extensions.swift */,
 				3193025C28953DCD00D56E1F /* ImagePicker.swift */,
+				31DF7AC328C976040069B0C7 /* LazyView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -359,6 +365,7 @@
 				31DF7AC228C7533A0069B0C7 /* WinType.swift in Sources */,
 				31C98FE528AE3A1C009A6163 /* Constants.swift in Sources */,
 				31930250289526EA00D56E1F /* CustomTextField.swift in Sources */,
+				31DF7AC428C976040069B0C7 /* LazyView.swift in Sources */,
 				31DF7AB828C5F2070069B0C7 /* ActivityViewModel.swift in Sources */,
 				31930245289521B700D56E1F /* ProfileActionButtonView.swift in Sources */,
 				31DF7AC028C751990069B0C7 /* SelectTypesViewModel.swift in Sources */,
@@ -370,6 +377,7 @@
 				319302362895213200D56E1F /* FeedView.swift in Sources */,
 				3193024D289522BF00D56E1F /* ActivityView.swift in Sources */,
 				31930252289526F500D56E1F /* CustomSecureField.swift in Sources */,
+				31DF7AC628C978AC0069B0C7 /* UserViewModel.swift in Sources */,
 				31DF7ABC28C61E090069B0C7 /* ActivityCell.swift in Sources */,
 				3102039D28C4B5CD003DBCB4 /* WinActionViewModel.swift in Sources */,
 				3193023A2895215200D56E1F /* WinActionView.swift in Sources */,

@@ -51,6 +51,8 @@ struct FeedView: View {
                         }
                         .listRowBackground(Color.clear)
                 }
+            .padding(.top, -30)
+            
             
             HStack {
                 Spacer()
