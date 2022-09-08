@@ -16,7 +16,7 @@ class FeedViewModel: ObservableObject {
     
     
     init() {
-        fetch10Wins()
+        fetchLastWins()
     }
     
     func fetchWins() {
@@ -63,6 +63,45 @@ class FeedViewModel: ObservableObject {
             self.wins.append(contentsOf: fetchedWins)
         }
     }
+    
+    func fetchLastWins() {
+        guard let followingList = AuthViewModel.shared.following else { return }
+        
+        COLLECTION_LAST_WINS.order(by: "dateSeconds", descending: true).whereField("uid", in: followingList).limit(to: 10).getDocuments { snapshot, err in
+            guard let documents = snapshot?.documents else { return }
+            let fetchedWins = documents.map({Win(dict: $0.data())}).sorted(by: {$0.timestamp.seconds > $1.timestamp.seconds})
+            self.wins = fetchedWins
+            
+            
+        }
+        
+    }
+    
+    func fetchMoreLastWins() {
+        let now = Int(Date().timeIntervalSince1970)
+        let difference = now - lastFetch
+        if endReached {
+            return
+        }
+        guard let followingList = AuthViewModel.shared.following else { return }
+        guard let lastWin = self.wins.last?.dateSeconds else { return }
+        
+        COLLECTION_LAST_WINS.order(by: "dateSeconds", descending: true).whereField("uid", in: followingList).start(after: [lastWin]).limit(to: 10).getDocuments { snapshot, err in
+            self.lastFetch = Int(Date().timeIntervalSince1970)
+            guard let documents = snapshot?.documents else { return }
+            if documents.count == 0 {
+                self.endReached = true
+            }
+            let fetchedWins = documents.map({Win(dict: $0.data())}).sorted(by: {$0.timestamp.seconds > $1.timestamp.seconds})
+            self.wins = fetchedWins
+            
+            
+        }
+        
+    }
 }
+
+
+
 
 

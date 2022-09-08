@@ -22,7 +22,12 @@ class UploadWinViewModel: ObservableObject {
         guard let user = AuthViewModel.shared.user else { return }
         
         let docRef = COLLECTION_WINS.document()
-        let lastWinRef = COLLECTION_LAST_WINS.document("\(Date().simpleDateString)\(user.id)\(typeString)")
+        
+        let dateString = Date().simpleDateString
+        
+        let lastWinRef = COLLECTION_LAST_WINS.document("\(dateString)\(user.id)\(typeString)")
+        
+        print("This is the last win ref \(dateString)\(user.id)\(typeString)")
         
         let data: [String: Any] = [
             "uid": user.id,

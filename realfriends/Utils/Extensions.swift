@@ -52,7 +52,7 @@ extension Date {
     
     var simpleDateString: String {
         let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MM/dd/yy"
+            dateFormatter.dateFormat = "MM-dd-yy"
         let date = Date()
       
         return dateFormatter.string(from: date)

@@ -51,6 +51,7 @@
 		31DF7AC228C7533A0069B0C7 /* WinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7AC128C7533A0069B0C7 /* WinType.swift */; };
 		31DF7AC428C976040069B0C7 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7AC328C976040069B0C7 /* LazyView.swift */; };
 		31DF7AC628C978AC0069B0C7 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7AC528C978AC0069B0C7 /* UserViewModel.swift */; };
+		31DF7AC828C9B0AF0069B0C7 /* TypeFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7AC728C9B0AF0069B0C7 /* TypeFeedViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		31DF7AC128C7533A0069B0C7 /* WinType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinType.swift; sourceTree = "<group>"; };
 		31DF7AC328C976040069B0C7 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		31DF7AC528C978AC0069B0C7 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		31DF7AC728C9B0AF0069B0C7 /* TypeFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeFeedViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				31C98FD428AE3584009A6163 /* AuthViewModel.swift */,
 				31C98FDF28AE39A4009A6163 /* UploadWinViewModel.swift */,
 				31C98FE128AE39B5009A6163 /* FeedViewModel.swift */,
+				31DF7AC728C9B0AF0069B0C7 /* TypeFeedViewModel.swift */,
 				31C98FE628AE3EBF009A6163 /* ProfileViewModel.swift */,
 				3102039C28C4B5CD003DBCB4 /* WinActionViewModel.swift */,
 				31DF7AB728C5F2070069B0C7 /* ActivityViewModel.swift */,
@@ -387,6 +390,7 @@
 				3193021F28951F0D00D56E1F /* realfriendsApp.swift in Sources */,
 				3193023C2895216100D56E1F /* NewWinView.swift in Sources */,
 				319302582895327300D56E1F /* LoginView.swift in Sources */,
+				31DF7AC828C9B0AF0069B0C7 /* TypeFeedViewModel.swift in Sources */,
 				319302382895214500D56E1F /* WinCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

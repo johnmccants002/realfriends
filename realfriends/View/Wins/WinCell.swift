@@ -44,7 +44,7 @@ struct WinCell: View {
             HStack {
                 Spacer()
                 Button(action: {}) {
-                    cell(win.type)
+                    cell("\(win.type) x\(win.typeCount)")
                 }
                 
             }

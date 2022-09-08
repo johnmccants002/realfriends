@@ -45,7 +45,7 @@ struct FeedView: View {
                             guard let lastIndex = viewModel.wins.lastIndex(of: lastWin) else { return }
                             if (lastIndex > 2) {
                                 if (viewModel.wins[lastIndex - 2] == win) {
-                                    viewModel.fetchMoreWins()
+                                    viewModel.fetchMoreLastWins()
                                 }
                             }
                         }

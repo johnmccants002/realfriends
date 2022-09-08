@@ -18,11 +18,11 @@ class UserViewModel: ObservableObject {
     }
     
     func fetchUser(id: String) {
-        print("Currently fetching user. Id = \(id)")
+
         Firestore.firestore().collection("users").document(id).getDocument { snapshot, _ in
             guard let data = snapshot?.data() else { return }
             self.user = User(dict: data)
-           print("We got the user")
+
         }
     }
 

@@ -17,6 +17,7 @@ class AuthViewModel: ObservableObject {
     @Published var isAuthenticating = false
     @Published var error: Error?
     @Published var user: User?
+    @Published var following: [String]?
     
    
     
@@ -27,6 +28,7 @@ class AuthViewModel: ObservableObject {
         
         userSession = Auth.auth().currentUser
         fetchUser()
+        fetchFollowing()
     }
     
     func login(email: String, password: String) {
@@ -107,4 +109,25 @@ class AuthViewModel: ObservableObject {
            
         }
     }
+    
+    func fetchFollowing() {
+        guard let uid = userSession?.uid else { return }
+        print("Uid: \(uid)")
+        var fetchedFollowing = [String]()
+        COLLECTION_FOLLOWING.document(uid).collection("user-following").getDocuments { snapshot, err in
+            print("getting documents")
+            
+            guard let documents = snapshot?.documents else { return }
+            print(documents, "These are the documents")
+            
+            
+            for doc in documents {
+                fetchedFollowing.append(doc.documentID)
+            }
+            self.following = fetchedFollowing
+            print("Following: \(fetchedFollowing)")
+        }
+    }
 }
+
+
