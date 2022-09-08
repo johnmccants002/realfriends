@@ -25,7 +25,7 @@ struct UserProfileView: View {
          
                 
                 ForEach(viewModel.userWins) { win in
-                    WinCell(win: win)
+                    WinCell(isTypeFeed: false, win: win)
                         .padding()
                 }
                 

@@ -9,10 +9,19 @@ import SwiftUI
 import Kingfisher
 
 struct ActivityCell: View {
+    
     let activity: Activity
+    @ObservedObject var viewModel : WinDetailViewModel
     
     init(activity: Activity) {
         self.activity = activity
+        
+        if let winId = activity.winId {
+            self.viewModel = WinDetailViewModel(id: winId)
+        } else {
+            self.viewModel = WinDetailViewModel(id: nil)
+        }
+        
     }
     
     func getActivityCaption(type: String) -> some View {
@@ -42,12 +51,25 @@ struct ActivityCell: View {
                     .foregroundColor(.gray)
                     .font(.system(size: 14, weight: .medium))
             }
-            activity.winCaption != nil ?
-            Text(activity.winCaption ?? "")
-                .font(.system(size: 16, weight: .light))
+            viewModel.win != nil ?
+            
+            AnyView(NavigationLink(
+                destination: LazyView(WinDetailView(win: viewModel.win ?? Win(dict: ["":""])))
+                
+                
+            , label: {
+                Text(activity.winCaption ?? "")
+                    .font(.system(size: 16, weight: .light))
+            }))
             :
-            Text("\(activity.fullname) followed you.")
+            AnyView(NavigationLink(
+                destination: EmptyView()
+            , label: {
+                Text("\(activity.fullname) followed you.")
+            }))
+            
         }
+        
             
             
         

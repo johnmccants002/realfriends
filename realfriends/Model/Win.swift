@@ -19,7 +19,7 @@ struct Win: Identifiable {
     let dateSeconds: Int
     let type: String
     let typeCount: Int
-    
+    let dateString: String
     init(dict: [String: Any]) {
         self.id = dict["id"] as? String ?? ""
         self.username = dict["username"] as? String ?? ""
@@ -32,6 +32,7 @@ struct Win: Identifiable {
         self.dateSeconds = dict["dateSeconds"] as? Int ?? Int(Date().timeIntervalSince1970)
         self.type = dict["type"] as? String ?? "Basic"
         self.typeCount = dict["typeCount"] as? Int ?? 0
+        self.dateString = dict["simpleDateString"] as? String ?? Date().simpleDateString
     }
     
     var timestampString: String {

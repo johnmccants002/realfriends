@@ -40,7 +40,8 @@ class UploadWinViewModel: ObservableObject {
             "likes": 0,
             "id": docRef.documentID,
             "type": typeString,
-            "typeCount": self.currentTypeCount + 1
+            "typeCount": self.currentTypeCount + 1,
+            "simpleDateString": Date().simpleDateString
         ]
         
         

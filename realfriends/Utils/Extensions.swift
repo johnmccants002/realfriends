@@ -58,6 +58,19 @@ extension Date {
         return dateFormatter.string(from: date)
         
     }
+    
+    var slashDateString: String {
+     
+            let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MM/dd/yy"
+            let date = Date()
+          
+            return dateFormatter.string(from: date)
+
+    }
 
 }
+
+
+
 

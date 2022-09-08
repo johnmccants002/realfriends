@@ -33,13 +33,13 @@ struct FeedView: View {
                             .listRowSeparator(.hidden)
                             .fontWeight(.semibold)
                     }
-                    WinCell(win: win)
-                        .overlay(
-                            NavigationLink(destination: WinDetailView(win: win), label: {
-                                EmptyView()
-                            })
-                            .opacity(0)
-                        )
+                WinCell(isTypeFeed: false, win: win)
+//                        .overlay(
+//                            NavigationLink(destination: WinDetailView(win: win), label: {
+//                                EmptyView()
+//                            })
+//                            .opacity(0)
+//                        )
                         .onAppear() {
                             guard let lastWin = viewModel.wins.last else { return }
                             guard let lastIndex = viewModel.wins.lastIndex(of: lastWin) else { return }

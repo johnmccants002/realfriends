@@ -124,6 +124,8 @@ class AuthViewModel: ObservableObject {
             for doc in documents {
                 fetchedFollowing.append(doc.documentID)
             }
+            fetchedFollowing.append(uid)
+            
             self.following = fetchedFollowing
             print("Following: \(fetchedFollowing)")
         }

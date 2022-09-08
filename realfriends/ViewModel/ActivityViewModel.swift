@@ -10,7 +10,7 @@ import Firebase
 
 class ActivityViewModel: ObservableObject {
     @Published var activities = [Activity]()
-    
+        
     init() {
         fetchActivity()
     }
@@ -35,5 +35,7 @@ class ActivityViewModel: ObservableObject {
     func fetchMoreActivity() {
         
     }
+    
+    
 }
 

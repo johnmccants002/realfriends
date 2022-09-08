@@ -9,6 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct WinCell: View {
+    let isTypeFeed: Bool
     let win: Win
     var percent: CGFloat = 0.7
     var body: some View {
@@ -43,9 +44,19 @@ struct WinCell: View {
             
             HStack {
                 Spacer()
-                Button(action: {}) {
-                    cell("\(win.type) x\(win.typeCount)")
-                }
+            
+                    isTypeFeed ?
+                AnyView(EmptyView())
+                :
+                AnyView(NavigationLink(
+                    destination: LazyView(TypeFeedView(uid: win.uid, typeString: win.type, win: win))
+                , label: {
+                    Button(action: {
+                       print("Button tapped this is the win: \(win)")
+                   }) {
+                        cell("\(win.type) x\(win.typeCount)")
+                    }
+                }))
                 
             }
             
@@ -54,6 +65,7 @@ struct WinCell: View {
                 
         }
         .padding(.leading, -20)
+  
     }
     
     @ViewBuilder

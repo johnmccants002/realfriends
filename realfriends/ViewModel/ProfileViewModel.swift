@@ -23,18 +23,6 @@ class ProfileViewModel: ObservableObject {
         fetchUserStats()
     }
     
-//    func tweets(forFilter filter: TweetFilterOptions) -> [Tweet] {
-//        switch filter {
-//        case .tweets:
-//            return self.userTweets
-//        case .likes:
-//            return self.likedTweets
-//        case.replies:
-//            return [Tweet]()
-//        }
-//    }
-//
-    
 }
 
 // MARK: - API
@@ -46,11 +34,25 @@ extension ProfileViewModel {
 
         let followingRef = COLLECTION_FOLLOWING.document(currentUid).collection("user-following")
         let followersRef = COLLECTION_FOLLOWERS.document(user.id).collection("user-followers")
+        let activityRef = COLLECTION_USERS.document(user.id).collection("user-activity")
+        let activityDoc = activityRef.document()
+        
+        let activityData = [
+            "fromUid": currentUid,
+            "fullname": user.fullname,
+            "id": activityDoc.documentID,
+            "profileImageUrl": user.profileImageUrl,
+            "timestamp": Timestamp(date: Date()),
+            "toUid": user.id,
+            "type": "newFollower",
+            "username": user.username
+        ] as [String: Any]
 
         followingRef.document(user.id).setData([:]) { _ in
             followersRef.document(currentUid).setData([:]) { _ in
                 self.user.isFollowed = true
             }
+            activityDoc.setData(activityData)
         }
 
 

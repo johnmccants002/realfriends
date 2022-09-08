@@ -59,7 +59,7 @@ struct NewWinView: View {
             }), trailing: Button(action: {
                 viewModel.uploadWin(caption: winText) { err in
                     self.feedViewModel.wins.removeAll()
-                    self.feedViewModel.fetchWins()
+                    self.feedViewModel.fetchLastWins()
                     
                     isPresented.toggle()
                 }

@@ -57,6 +57,7 @@ struct SelectTypesView: View {
                     if searchText == "" {
                         Button {
                             uploadViewModel.typeString = type.typeString
+                            uploadViewModel.fetchTypeCount()
                             isShowingTypes = false
                         } label: {
                             Text(type.typeString)
@@ -66,6 +67,7 @@ struct SelectTypesView: View {
                     } else if type.typeString.contains(searchText) {
                         Button {
                             uploadViewModel.typeString = type.typeString
+                            uploadViewModel.fetchTypeCount()
                             isShowingTypes = false
                         } label: {
                             Text(type.typeString)

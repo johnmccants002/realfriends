@@ -52,6 +52,8 @@
 		31DF7AC428C976040069B0C7 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7AC328C976040069B0C7 /* LazyView.swift */; };
 		31DF7AC628C978AC0069B0C7 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7AC528C978AC0069B0C7 /* UserViewModel.swift */; };
 		31DF7AC828C9B0AF0069B0C7 /* TypeFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7AC728C9B0AF0069B0C7 /* TypeFeedViewModel.swift */; };
+		31DF7ACA28C9B9430069B0C7 /* TypeFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7AC928C9B9430069B0C7 /* TypeFeedView.swift */; };
+		31DF7ACC28C9D6770069B0C7 /* WinDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF7ACB28C9D6770069B0C7 /* WinDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +98,8 @@
 		31DF7AC328C976040069B0C7 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		31DF7AC528C978AC0069B0C7 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		31DF7AC728C9B0AF0069B0C7 /* TypeFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeFeedViewModel.swift; sourceTree = "<group>"; };
+		31DF7AC928C9B9430069B0C7 /* TypeFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeFeedView.swift; sourceTree = "<group>"; };
+		31DF7ACB28C9D6770069B0C7 /* WinDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,7 @@
 				31DF7AB728C5F2070069B0C7 /* ActivityViewModel.swift */,
 				31DF7ABF28C751990069B0C7 /* SelectTypesViewModel.swift */,
 				31DF7AC528C978AC0069B0C7 /* UserViewModel.swift */,
+				31DF7ACB28C9D6770069B0C7 /* WinDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				319302352895213200D56E1F /* FeedView.swift */,
+				31DF7AC928C9B9430069B0C7 /* TypeFeedView.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -355,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31DF7ACA28C9B9430069B0C7 /* TypeFeedView.swift in Sources */,
 				31DF7ABE28C74FA20069B0C7 /* SelectTypesView.swift in Sources */,
 				31DF7ABA28C5F2700069B0C7 /* Activity.swift in Sources */,
 				31C98FE228AE39B5009A6163 /* FeedViewModel.swift in Sources */,
@@ -362,6 +369,7 @@
 				319302322895210700D56E1F /* User.swift in Sources */,
 				31C98FE728AE3EBF009A6163 /* ProfileViewModel.swift in Sources */,
 				31C98FE028AE39A4009A6163 /* UploadWinViewModel.swift in Sources */,
+				31DF7ACC28C9D6770069B0C7 /* WinDetailViewModel.swift in Sources */,
 				31930247289521D800D56E1F /* FilterButtonView.swift in Sources */,
 				3193025A2895327F00D56E1F /* RegistrationView.swift in Sources */,
 				31930230289520B000D56E1F /* Win.swift in Sources */,
