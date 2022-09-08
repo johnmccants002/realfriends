@@ -21,8 +21,8 @@ struct WinCell: View {
                     .clipped()
                     .frame(width: 32, height: 32)
                     .cornerRadius(32 / 2)
-                    .padding(.leading)
-                
+                    .padding(.trailing, 5)
+
                 VStack(alignment: .leading, spacing: 4) {
                     HStack {
                         Text(win.fullname)
@@ -39,32 +39,33 @@ struct WinCell: View {
                     Text(win.caption)
                         .foregroundColor(.black)
                         .multilineTextAlignment(.leading)
+                        .padding(.bottom, 10)
+                    
+                    HStack {
+                            isTypeFeed ?
+                        AnyView(EmptyView())
+                        :
+                        AnyView(NavigationLink(
+                            destination: LazyView(TypeFeedView(uid: win.uid, typeString: win.type, win: win))
+                        , label: {
+                            Button(action: {
+                               print("Button tapped this is the win: \(win)")
+                           }) {
+                                cell("\(win.type) x\(win.typeCount)")
+                            }
+                        }))
+                        
+                    }
                 }
             }
             
-            HStack {
-                Spacer()
-            
-                    isTypeFeed ?
-                AnyView(EmptyView())
-                :
-                AnyView(NavigationLink(
-                    destination: LazyView(TypeFeedView(uid: win.uid, typeString: win.type, win: win))
-                , label: {
-                    Button(action: {
-                       print("Button tapped this is the win: \(win)")
-                   }) {
-                        cell("\(win.type) x\(win.typeCount)")
-                    }
-                }))
-                
-            }
+           
             
             WinActionView(win: win)
                 .frame(maxWidth: .infinity)
                 
         }
-        .padding(.leading, -20)
+
   
     }
     

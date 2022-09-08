@@ -8,14 +8,21 @@
 import Foundation
 import Firebase
 
-class WinDetailViewModel: ObservableObject {
+class ActivityCellViewModel: ObservableObject {
     @Published var win: Win?
     let id: String?
+    let fromUid: String?
+    var user: User?
     
-    init(id: String?) {
+    init(id: String?, fromUid: String?) {
         self.id = id
+        self.fromUid = fromUid
         if let winId = id {
             self.fetchWin()
+        }
+        
+        if fromUid != nil {
+            self.fetchUser()
         }
     }
     
@@ -30,5 +37,13 @@ class WinDetailViewModel: ObservableObject {
             self.win = win
         }
         
+    }
+    
+    func fetchUser() {
+        guard let uid = fromUid else { return }
+        COLLECTION_USERS.document(uid).getDocument { snapshot, err in
+            guard let data = snapshot?.data() else { return }
+            self.user = User(dict: data)
+        }
     }
 }

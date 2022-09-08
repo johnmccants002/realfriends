@@ -16,7 +16,7 @@ class FeedViewModel: ObservableObject {
     
     
     init() {
-        fetchLastWins()
+        fetch10Wins()
     }
     
     func fetchWins() {

@@ -31,21 +31,22 @@ extension ProfileViewModel {
 
     func follow() {
         guard let currentUid = Auth.auth().currentUser?.uid else { return }
+        guard let currentUser = AuthViewModel.shared.user else { return }
 
         let followingRef = COLLECTION_FOLLOWING.document(currentUid).collection("user-following")
         let followersRef = COLLECTION_FOLLOWERS.document(user.id).collection("user-followers")
         let activityRef = COLLECTION_USERS.document(user.id).collection("user-activity")
-        let activityDoc = activityRef.document()
+        let activityDoc = activityRef.document("newFollower\(currentUid)")
         
         let activityData = [
             "fromUid": currentUid,
-            "fullname": user.fullname,
+            "fullname": currentUser.fullname,
             "id": activityDoc.documentID,
-            "profileImageUrl": user.profileImageUrl,
+            "profileImageUrl": currentUser.profileImageUrl,
             "timestamp": Timestamp(date: Date()),
             "toUid": user.id,
             "type": "newFollower",
-            "username": user.username
+            "username": currentUser.username
         ] as [String: Any]
 
         followingRef.document(user.id).setData([:]) { _ in
@@ -67,6 +68,10 @@ extension ProfileViewModel {
             followersRef.document(currentUid).delete { _ in
                 self.user.isFollowed = false
             }
+            
+            
+            
+            COLLECTION_USERS.document(self.user.id).collection("user-activity").document("newFollower\(currentUid)").delete()
         }
 
     }

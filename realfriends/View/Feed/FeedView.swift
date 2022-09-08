@@ -49,9 +49,18 @@ struct FeedView: View {
                                 }
                             }
                         }
-                        .listRowBackground(Color.clear)
+                        .listRowBackground(Color.white)
+                   
                 }
-            .padding(.top, -30)
+            .frame( maxWidth: .infinity)
+            .edgesIgnoringSafeArea(.all)
+            .listStyle(PlainListStyle())
+            .scenePadding(.top)
+            
+           
+       
+      
+       
             
             
             HStack {

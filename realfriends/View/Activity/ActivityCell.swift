@@ -7,23 +7,28 @@
 
 import SwiftUI
 import Kingfisher
+import Firebase
 
 struct ActivityCell: View {
     
     let activity: Activity
-    @ObservedObject var viewModel : WinDetailViewModel
+    var user: User?
+    @ObservedObject var viewModel : ActivityCellViewModel
+    
     
     init(activity: Activity) {
         self.activity = activity
         
         if let winId = activity.winId {
-            self.viewModel = WinDetailViewModel(id: winId)
+            self.viewModel = ActivityCellViewModel(id: winId, fromUid: nil)
         } else {
-            self.viewModel = WinDetailViewModel(id: nil)
+            self.viewModel = ActivityCellViewModel(id: nil, fromUid: activity.fromUid)
         }
         
     }
     
+    
+
     func getActivityCaption(type: String) -> some View {
         if type == "newRespect" {
             return (
@@ -33,8 +38,9 @@ struct ActivityCell: View {
             return (
                 Text("\(activity.fullname) followed you.")
             )
-        }
+       }
     }
+    
     var body: some View {
         VStack {
             HStack {
@@ -63,9 +69,9 @@ struct ActivityCell: View {
             }))
             :
             AnyView(NavigationLink(
-                destination: EmptyView()
+                destination: LazyView(UserProfileView(user: viewModel.user ?? User(dict: ["":""])))
             , label: {
-                Text("\(activity.fullname) followed you.")
+                Text("View Profile")
             }))
             
         }

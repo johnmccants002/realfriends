@@ -64,22 +64,26 @@ struct WinDetailView: View {
                 
                 Divider()
                 
-                HStack(spacing: 12) {
-                    
-                    HStack(spacing: 4) {
-                        Text("0")
-                            .font(.system(size: 14, weight: .semibold))
-                        
-                        Text("Respects")
-                            .font(.system(size: 14))
-                            .foregroundColor(.gray)
-                        
-                    }
-                    
-                    Spacer()
-                    
-                }
-                Divider()
+                        if AuthViewModel.shared.userSession?.uid == win.uid {
+                            HStack(spacing: 12) {
+                                
+                                HStack(spacing: 4) {
+                                    Text("0")
+                                        .font(.system(size: 14, weight: .semibold))
+                                    
+                                    Text("Respects")
+                                        .font(.system(size: 14))
+                                        .foregroundColor(.gray)
+                                    
+                                }
+                                
+                                Spacer()
+                                
+                            }
+                            Divider()
+                        }
+                
+               
                 
                 WinActionView(win: win)
                 
