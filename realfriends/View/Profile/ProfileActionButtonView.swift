@@ -22,7 +22,6 @@ struct ProfileActionButtonView: View {
             })
             .cornerRadius(20)
         } else {
-            Spacer()
             HStack {
                 Button(action: {
                     viewModel.user.isFollowed ? viewModel.unfollow() : viewModel.follow()
@@ -33,7 +32,6 @@ struct ProfileActionButtonView: View {
                         .foregroundColor(.white)
                 })
                 .cornerRadius(20)
-            Spacer()
                 
 
             }
